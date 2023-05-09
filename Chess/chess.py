@@ -40,7 +40,7 @@ def covertPosition(mouse_position):
     pos = mouse_position
     x = (pos[0] - 20) // 75
     y = (pos[1] - 20) // 75
-    return((x, y))
+    return(x, y)
     
 
 # main loop
@@ -66,12 +66,13 @@ while True:
         if event.type == pygame.MOUSEBUTTONUP:
             if selected_piece is not None:
                 pos = pygame.mouse.get_pos()
-                pos = covertPosition(pos)
-                
+                x, y = covertPosition(pos)
 
-            
-
-            
+                #check if new position is legal
+                if 0<= x < 8 and 0<= y < 8:
+                    selected_piece.x = x
+                    selected_piece.y = y
+                selected_piece = None
 
     # redraw the board and pieces
     board.fill((255, 206, 158))

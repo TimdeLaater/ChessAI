@@ -23,29 +23,3 @@ def createBoard():
 
     pygame.display.flip()
     return(board, screen)
-def setPieces():
-    piece_positions = {
-    "black_pawn": [(i, 1) for i in range(8)],
-    "white_pawn": [(i, 6) for i in range(8)],
-    "black_rook": [(0, 0), (7, 0)],
-    "white_rook": [(0, 7), (7, 7)],
-    "black_knight": [(1, 0), (6, 0)],
-    "white_knight": [(1, 7), (6, 7)],
-    "black_bishop": [(2, 0), (5, 0)],
-    "white_bishop": [(2, 7), (5, 7)],
-    "black_queen": [(3, 0)],
-    "white_queen": [(3, 7)],
-    "black_king": [(4, 0)],
-    "white_king": [(4, 7)],
-}
-
-    pieces = []
-    for piece_type, positions in piece_positions.items():
-        for position in positions:
-            color = "black" if piece_type.startswith("black") else "white"
-            piece = Piece(color, position[0], position[1], piece_type.split("_")[1])
-            pieces.append(piece)
-
-    # draw the pieces
-    for piece in pieces:
-     piece.draw(board)
